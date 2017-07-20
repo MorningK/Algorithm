@@ -1,6 +1,6 @@
 package com.sysu.ck.graph;
 
-public class Node {
+public class Node implements Comparable<Node> {
 	public Node() {
 		x = 0;
 		y = 0;
@@ -8,6 +8,8 @@ public class Node {
 	public Node(int xx, int yy) {
 		x = xx;
 		y = yy;
+		weigth = 0;
+		parent = null;
 	}
 	
 	public int getX() {
@@ -40,5 +42,10 @@ public class Node {
 	private int y;
 	private int weigth;
 	private Node parent;
+	
+	@Override
+	public int compareTo(Node o) {
+		return this.getWeigth() - o.getWeigth();
+	}
 	
 }
